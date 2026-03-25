@@ -9,6 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
   <style>
+    /* ===== Desktop: hide mobile-only elements ===== */
+    .footer-services-link { display: none; }
+
     /* ===== Mobile Quick-Access Icon Grid ===== */
     .mobile-quick-nav {
       display: none;
@@ -23,6 +26,17 @@
       .hero__subtitle,
       .hero__actions {
         display: none;
+      }
+
+      /* Shorten footer services list on mobile */
+      .footer-services-full { display: none; }
+      .footer-services-link {
+        display: inline-block;
+        color: var(--gold-400);
+        font-weight: 600;
+        font-size: 0.9rem;
+        text-decoration: none;
+        margin-top: 0.25rem;
       }
 
       /* Hide desktop content sections on mobile */
@@ -551,9 +565,9 @@
             <li><a href="contact.html">Contact Us</a></li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div class="footer-col footer-col--services">
           <h4>Our Services</h4>
-          <ul>
+          <ul class="footer-services-full">
             <li><a href="services/general-dentistry.html">General Dentistry</a></li>
             <li><a href="services/same-day-crowns.html">Same-Day Crowns</a></li>
             <li><a href="services/teeth-whitening.html">Teeth Whitening</a></li>
@@ -562,6 +576,7 @@
             <li><a href="services/smile-makeovers.html">Smile Makeovers</a></li>
             <li><a href="services/lasers-in-dentistry.html">Lasers in Dentistry</a></li>
           </ul>
+          <a href="services.html" class="footer-services-link">View All Services &rarr;</a>
         </div>
       </div>
       <div class="footer-bottom">
