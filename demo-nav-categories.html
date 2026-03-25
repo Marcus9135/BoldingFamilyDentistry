@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav Demo - Collapsible Categories</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* ===== Desktop: Flyout sub-menus to the right ===== */
+    @media (min-width: 769px) {
+      .header-dropdown.header-dropdown--mega {
+        min-width: 220px;
+        padding: 0.5rem 0;
+      }
+
+      .header-dropdown--mega .dropdown-all-services {
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        margin-bottom: 0.15rem;
+      }
+
+      .header-dropdown--mega .dropdown-group {
+        position: relative;
+      }
+
+      .header-dropdown--mega .dropdown-group-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: rgba(255,255,255,.85);
+        padding: 0.55rem 1.2rem;
+        cursor: pointer;
+        list-style: none;
+        transition: all var(--transition);
+      }
+      .header-dropdown--mega .dropdown-group-label::after {
+        content: '›';
+        font-size: 1.1rem;
+        color: rgba(255,255,255,.3);
+        transition: color 0.2s ease;
+      }
+      .header-dropdown--mega .dropdown-group:hover > .dropdown-group-label {
+        background: rgba(17,86,90,.15);
+        color: var(--gold-400);
+      }
+      .header-dropdown--mega .dropdown-group:hover > .dropdown-group-label::after {
+        color: var(--gold-400);
+      }
+
+      .header-dropdown--mega .dropdown-group-items {
+        display: none;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        min-width: 230px;
+        background: #1a1a1a;
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid rgba(255,255,255,.06);
+        border-left: none;
+        padding: 0.5rem 0;
+        z-index: 101;
+      }
+      .header-dropdown--mega .dropdown-group:hover > .dropdown-group-items {
+        display: block;
+      }
+      .header-dropdown--mega .dropdown-group-items a {
+        display: block;
+        padding: 0.5rem 1.2rem;
+        font-size: 0.86rem;
+      }
+    }
+
+    /* ===== Mobile: Collapsible accordions ===== */
+    @media (max-width: 768px) {
+      .header-dropdown {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .dropdown-all-services {
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .dropdown-group-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--gold-400);
+        padding: 0.65rem 0;
+        cursor: pointer;
+        list-style: none;
+      }
+      .dropdown-group:not(:last-child) > .dropdown-group-label {
+        border-bottom: 1px solid rgba(255,255,255,.06);
+      }
+      .dropdown-group-label::after {
+        content: '+';
+        font-size: 1rem;
+        font-weight: 400;
+        color: rgba(255,255,255,.4);
+        transition: transform 0.2s ease;
+      }
+      .dropdown-group-label.cat-open::after {
+        content: '−';
+        color: var(--gold-400);
+      }
+
+      .dropdown-group-items {
+        display: none;
+        padding-left: 0.5rem;
+      }
+      .dropdown-group-items.cat-open {
+        display: block;
+      }
+      .dropdown-group-items a {
+        padding: 0.4rem 0 0.4rem 0.25rem;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="index.html" class="header-logo"><img src="images/logo.png" alt="Bolding Family Dentistry"></a><button class="mobile-toggle" aria-label="Open menu"><span></span><span></span><span></span></button><nav class="header-nav"><ul class="header-nav__list"><li class="header-nav__item"><a href="index.html" class="header-nav__link">Home</a></li><li class="header-nav__item"><a href="about.html" class="header-nav__link">About</a></li><li class="header-nav__item"><a href="services.html" class="header-nav__link active">Services <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></a><ul class="header-dropdown header-dropdown--mega">
+  <li class="dropdown-all-services"><a href="services.html">All Services</a></li>
+
+  <li class="dropdown-group">
+    <div class="dropdown-group-label">Preventive</div>
+    <div class="dropdown-group-items">
+      <a href="services/general-dentistry.html">General Dentistry</a>
+    </div>
+  </li>
+
+  <li class="dropdown-group">
+    <div class="dropdown-group-label">Restorative</div>
+    <div class="dropdown-group-items">
+      <a href="services/dental-bridges.html">Dental Bridges</a>
+      <a href="services/same-day-crowns.html">Same-Day Crowns</a>
+      <a href="services/root-canal-therapy.html">Root Canal Therapy</a>
+      <a href="services/full-mouth-reconstruction.html">Full Mouth Reconstruction</a>
+      <a href="services/cad-cam-restorations.html">CAD/CAM Restorations</a>
+    </div>
+  </li>
+
+  <li class="dropdown-group">
+    <div class="dropdown-group-label">Cosmetic</div>
+    <div class="dropdown-group-items">
+      <a href="services/teeth-whitening.html">Teeth Whitening</a>
+      <a href="services/dental-veneers.html">Dental Veneers</a>
+      <a href="services/clear-aligners.html">Clear Aligners</a>
+      <a href="services/smile-makeovers.html">Smile Makeovers</a>
+    </div>
+  </li>
+
+  <li class="dropdown-group">
+    <div class="dropdown-group-label">Advanced</div>
+    <div class="dropdown-group-items">
+      <a href="services/lasers-in-dentistry.html">Lasers in Dentistry</a>
+      <a href="services/periodontal-disease.html">Periodontal Disease</a>
+    </div>
+  </li>
+</ul></li><li class="header-nav__item"><a href="patient-info.html" class="header-nav__link">Patient Info <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></a><ul class="header-dropdown"><li><a href="patient-info/what-to-expect.html">First Visit</a></li><li><a href="patient-info/patient-forms.html">Patient Forms</a></li><li><a href="patient-info/insurance-financial.html">Insurance &amp; Financial</a></li><li><a href="patient-info/instructions.html">Patient Instructions</a></li></ul></li><li class="header-nav__item"><a href="dental-emergencies.html" class="header-nav__link">Emergencies</a></li><li class="header-nav__item"><a href="contact.html" class="header-nav__link">Contact</a></li></ul><div class="header-cta"><a href="tel:9313882279" class="header-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>931-388-2279</a></div></nav></div></header>
+
+  <section class="hero hero--page"><div class="container"><span class="hero__tag">Nav Demo</span><h1>Collapsible Categories</h1><p class="hero__subtitle">Open the mobile menu, tap "Services", then tap a category to expand it</p></div></section>
+
+<section class="content-layout">
+  <div class="container">
+    <div class="content-grid">
+      <main class="main-content">
+        <h2>Collapsible Category Dropdown</h2>
+        <p>Services are grouped under Preventive, Restorative, Cosmetic, and Advanced. Tap a category heading to expand/collapse its services. Only one category shows at a time.</p>
+      </main>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+<script>
+  document.querySelectorAll('.dropdown-group-label').forEach(label => {
+    label.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const items = label.nextElementSibling;
+      const isOpen = label.classList.contains('cat-open');
+
+      // Close all other groups
+      document.querySelectorAll('.dropdown-group-label').forEach(l => l.classList.remove('cat-open'));
+      document.querySelectorAll('.dropdown-group-items').forEach(i => i.classList.remove('cat-open'));
+
+      // Toggle this one
+      if (!isOpen) {
+        label.classList.add('cat-open');
+        items.classList.add('cat-open');
+      }
+    });
+  });
+</script>
+</body>
+</html>

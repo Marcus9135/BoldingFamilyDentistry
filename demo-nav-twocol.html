@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nav Demo - Two Columns</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* OPTION 4: Two-column dropdown on mobile */
+    @media (max-width: 768px) {
+      .header-dropdown--twocol {
+        display: none;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 0.75rem;
+        padding-left: 0 !important;
+      }
+      .header-nav__item.dropdown-open > .header-dropdown--twocol {
+        display: grid;
+      }
+      .header-dropdown--twocol a {
+        padding: 0.4rem 0;
+        font-size: 0.82rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .header-dropdown--twocol .dropdown-all-link {
+        grid-column: 1 / -1;
+        border-bottom: 1px solid rgba(255,255,255,.08);
+        padding-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header"><div class="header-inner"><a href="index.html" class="header-logo"><img src="images/logo.png" alt="Bolding Family Dentistry"></a><button class="mobile-toggle" aria-label="Open menu"><span></span><span></span><span></span></button><nav class="header-nav"><ul class="header-nav__list"><li class="header-nav__item"><a href="index.html" class="header-nav__link">Home</a></li><li class="header-nav__item"><a href="about.html" class="header-nav__link">About</a></li><li class="header-nav__item"><a href="services.html" class="header-nav__link active">Services <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></a><ul class="header-dropdown header-dropdown--twocol">
+  <li class="dropdown-all-link"><a href="services.html">All Services</a></li>
+  <li><a href="services/general-dentistry.html">General Dentistry</a></li>
+  <li><a href="services/dental-bridges.html">Dental Bridges</a></li>
+  <li><a href="services/same-day-crowns.html">Same-Day Crowns</a></li>
+  <li><a href="services/root-canal-therapy.html">Root Canal Therapy</a></li>
+  <li><a href="services/teeth-whitening.html">Teeth Whitening</a></li>
+  <li><a href="services/dental-veneers.html">Dental Veneers</a></li>
+  <li><a href="services/clear-aligners.html">Clear Aligners</a></li>
+  <li><a href="services/smile-makeovers.html">Smile Makeovers</a></li>
+  <li><a href="services/full-mouth-reconstruction.html">Full Mouth</a></li>
+  <li><a href="services/lasers-in-dentistry.html">Lasers in Dentistry</a></li>
+  <li><a href="services/cad-cam-restorations.html">CAD/CAM</a></li>
+  <li><a href="services/periodontal-disease.html">Periodontal Disease</a></li>
+</ul></li><li class="header-nav__item"><a href="patient-info.html" class="header-nav__link">Patient Info <svg viewBox="0 0 10 6" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l4 4 4-4"/></svg></a><ul class="header-dropdown"><li><a href="patient-info/what-to-expect.html">First Visit</a></li><li><a href="patient-info/patient-forms.html">Patient Forms</a></li><li><a href="patient-info/insurance-financial.html">Insurance &amp; Financial</a></li><li><a href="patient-info/instructions.html">Patient Instructions</a></li></ul></li><li class="header-nav__item"><a href="dental-emergencies.html" class="header-nav__link">Emergencies</a></li><li class="header-nav__item"><a href="contact.html" class="header-nav__link">Contact</a></li></ul><div class="header-cta"><a href="tel:9313882279" class="header-phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>931-388-2279</a></div></nav></div></header>
+
+  <section class="hero hero--page"><div class="container"><span class="hero__tag">Nav Demo</span><h1>Option 4: Two-Column Layout</h1><p class="hero__subtitle">Open the mobile menu and tap "Services" to see the two-column grid</p></div></section>
+
+<section class="content-layout">
+  <div class="container">
+    <div class="content-grid">
+      <main class="main-content">
+        <h2>Two-Column Dropdown</h2>
+        <p>Services are displayed in a two-column CSS grid, cutting the vertical space roughly in half. "All Services" spans the full width at the top as a header link.</p>
+      </main>
+    </div>
+  </div>
+</section>
+
+<script src="js/main.js"></script>
+</body>
+</html>
